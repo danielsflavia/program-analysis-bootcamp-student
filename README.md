@@ -59,6 +59,8 @@ dune runtest
 ## Learning Progression
 
 ```
+Module 0: OCaml warm-up            (types, pattern matching, functors)
+    │
 Module 1: Why analyze code?        (static vs dynamic analysis)
     │
 Module 2: How to represent code?   (abstract syntax trees)
@@ -76,6 +78,7 @@ Module 6: How to build tools?      (composition + reporting pipeline)
 
 | Module | Topic | Exercises | Tests | Student Guide |
 |--------|-------|-----------|-------|---------------|
+| [0](modules/module0-warmup/) | OCaml Warm-Up | 5 | — (guided) | [Guide](modules/module0-warmup/STUDENT_README.md) |
 | [1](modules/module1-foundations/) | Foundations of Program Analysis | 2 | self-check | [Guide](modules/module1-foundations/STUDENT_README.md) |
 | [2](modules/module2-ast/) | Code Representation & ASTs | 4 | 63 | [Guide](modules/module2-ast/STUDENT_README.md) |
 | [3](modules/module3-static-analysis/) | Static Analysis Fundamentals | 5 | 72 | [Guide](modules/module3-static-analysis/STUDENT_README.md) |
