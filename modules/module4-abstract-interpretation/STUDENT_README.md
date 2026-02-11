@@ -13,9 +13,9 @@ Source Code  →  AST  →  Abstract Interpretation  →  Safety Proof
         (fast, coarse)  (good for opt)   (precise, needs widen)
 ```
 
-**Total exercises:** 5 (110 tests)
+**Required exercises:** 3 (71 tests) | **Optional exercises:** 2 (29 tests)
 **Lab:** Lab 4 — Abstract Interpreter (10 tests)
-**Estimated time:** 2–3 hours for exercises, 2–4 hours for the lab
+**Estimated time:** 1.5–2 hours for required exercises, 2–4 hours for the lab
 
 ---
 
@@ -27,9 +27,9 @@ Source Code  →  AST  →  Abstract Interpretation  →  Safety Proof
 4. [Background: Key Concepts](#4-background-key-concepts)
 5. [Exercise 1: Sign Lattice](#5-exercise-1-sign-lattice-20-tests)
 6. [Exercise 2: Constant Propagation](#6-exercise-2-constant-propagation-23-tests)
-7. [Exercise 3: Galois Connections](#7-exercise-3-galois-connections-16-tests)
+7. [Exercise 3: Galois Connections (Optional)](#7-exercise-3-galois-connections-optional-16-tests)
 8. [Exercise 4: Interval Domain](#8-exercise-4-interval-domain-28-tests)
-9. [Exercise 5: Abstract Interpreter](#9-exercise-5-abstract-interpreter-13-tests)
+9. [Exercise 5: Abstract Interpreter (Optional)](#9-exercise-5-abstract-interpreter-optional-13-tests)
 10. [Lab 4: Integrated Abstract Interpreter](#10-lab-4-integrated-abstract-interpreter-10-tests)
 11. [Troubleshooting](#11-troubleshooting)
 
@@ -358,7 +358,12 @@ dune runtest modules/module4-abstract-interpretation/exercises/constant-propagat
 
 ---
 
-## 7. Exercise 3: Galois Connections (16 tests)
+## 7. Exercise 3: Galois Connections (Optional, 16 tests)
+
+> **This exercise is optional.** It covers the theoretical foundations of
+> abstract interpretation (Galois connections, adjunction, monotonicity).
+> Completing it will deepen your understanding but is not required for
+> Exercise 4 or the lab. Skip to [Exercise 4](#8-exercise-4-interval-domain-28-tests) if you prefer.
 
 **Goal:** Formalize the alpha/gamma pair for the sign domain and verify
 soundness properties (adjunction, monotonicity).
@@ -462,7 +467,12 @@ dune runtest modules/module4-abstract-interpretation/exercises/interval-domain/
 
 ---
 
-## 9. Exercise 5: Abstract Interpreter (13 tests)
+## 9. Exercise 5: Abstract Interpreter (Optional, 13 tests)
+
+> **This exercise is optional.** It builds a full abstract interpreter using
+> OCaml functors. It's the most advanced exercise in this module. The lab
+> covers similar ground with more guidance, so you can go directly to
+> [Lab 4](#10-lab-4-integrated-abstract-interpreter-10-tests) if you prefer.
 
 **Goal:** Wire everything together — a generic interpreter parameterized by any
 `ABSTRACT_DOMAIN`, with division-by-zero detection.
@@ -547,7 +557,7 @@ dune runtest labs/lab4-abstract-interpreter/starter/tests/
 ### Tips
 
 - **Start with Part A** — it's the foundation for Part B
-- Reuse patterns from Exercise 5 (the functor structure is similar)
+- If you completed Exercise 5, reuse its functor patterns here; if not, the lab README walks you through the structure
 - Part C is a written report — run programs through all 3 domains and compare
 
 ---
@@ -601,18 +611,20 @@ dune runtest   # ERROR: can't find shared_ast or abstract_domains
 ## Exercise Progression Cheat Sheet
 
 ```
-Exercise 1: Sign Lattice          ← finite domain, no widening needed
+Exercise 1: Sign Lattice              ← finite domain, no widening needed
      ↓
-Exercise 2: Constant Propagation  ← flat lattice + expression evaluator
+Exercise 2: Constant Propagation      ← flat lattice + expression evaluator
      ↓
-Exercise 3: Galois Connections    ← formalize alpha/gamma, verify soundness
+Exercise 3: Galois Connections        ← (optional) formalize alpha/gamma
      ↓
-Exercise 4: Interval Domain       ← infinite domain, widening is critical
+Exercise 4: Interval Domain           ← infinite domain, widening is critical
      ↓
-Exercise 5: Abstract Interpreter  ← functor ties it all together
+Exercise 5: Abstract Interpreter      ← (optional) functor ties it all together
      ↓
-Lab 4: Integrated Analyzer        ← multi-domain + safety checking + reporting
+Lab 4: Integrated Analyzer            ← multi-domain + safety checking + reporting
 ```
 
-Good luck! When all 110 exercise tests and 10 lab tests show dots, you've
-mastered abstract interpretation.
+**Minimum path:** Exercises 1 → 2 → 4 → Lab 4 (71 exercise tests + 10 lab tests)
+**Full path:** All 5 exercises → Lab 4 (110 exercise tests + 10 lab tests)
+
+Good luck!
