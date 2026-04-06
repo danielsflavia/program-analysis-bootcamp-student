@@ -34,21 +34,6 @@ end
 
 module StringSet = Set.Make (String)
 
-(** PowersetLattice: a lattice over sets of strings.
-
-    The lattice ordering is subset inclusion:
-    - bottom = empty set (no facts known)
-    - top = the full universe of strings
-    - join = set union (merge information from branches)
-    - meet = set intersection
-
-    The [universe] ref must be set before calling [top] so that
-    the lattice knows the full set of possible elements.
-
-    TODO: Implement all functions below. Each one currently raises
-    [Failure "TODO"]. Replace them with correct implementations using
-    the [StringSet] module.
-*)
 module PowersetLattice : sig
   include LATTICE with type t = StringSet.t
   val universe : StringSet.t ref
@@ -57,15 +42,17 @@ end = struct
 
   let universe = ref StringSet.empty
 
-  let bottom = failwith "TODO: return the least element of the powerset lattice"
+  let bottom = StringSet.empty
 
-  let top = failwith "TODO: return the greatest element of the powerset lattice"
+  let top = !universe
 
-  let join _a _b = failwith "TODO: compute the least upper bound (union)"
+  let join a b = StringSet.union a b
 
-  let meet _a _b = failwith "TODO: compute the greatest lower bound (intersection)"
+  let meet a b = StringSet.inter a b
 
-  let equal _a _b = failwith "TODO: test equality of two sets"
+  let equal a b = StringSet.equal a b
 
-  let to_string _s = failwith "TODO: format as {a, b, c}"
+  let to_string s =
+    let elems = StringSet.elements s in
+    "{" ^ String.concat ", " elems ^ "}"
 end
